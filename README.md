@@ -12,3 +12,7 @@ The "panning" (it's not panning, it literally is the a "morphing" of the soundst
 To use the apparatus described in 1-3, you put your phone on your head (so it can track your head angle), preferably between your headphone strap and head to stay relatively secure, and go and play your digital piano VI.  As you change your left/right head angle, the modulation wheel CC1 controller will change.
 
 I'm currently making a new piano VI, that has been recorded at different binaural angles that is to be used with the apparatus 1-3.  It is amazing how realistic the prototype is.
+
+NOTE:  currently the python app works on PC - if someone can try it on MacOS, that would be great.
+
+Also, the .exe version was made using pyinstaller, and it is currently flagged by antivirus.  My suggestion if you don't trust the exe is to just install python and all of the include libraries and run directly from sourcecode.  If anyone has a better idea, let me know.
