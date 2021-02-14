@@ -16,3 +16,6 @@ I'm currently making a new piano VI, that has been recorded at different binaura
 NOTE:  currently the python app works on PC - if someone can try it on MacOS, that would be great.
 
 Also, the .exe version was made using pyinstaller, and it is currently flagged by antivirus.  My suggestion if you don't trust the exe is to just install python and all of the include libraries and run directly from sourcecode.  If anyone has a better idea, let me know.
+
+More information on how to install can be found on my rudimentary youtube page:
+https://www.youtube.com/watch?v=Ddhh9WF95ho&t=28s
