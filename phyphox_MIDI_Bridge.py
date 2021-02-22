@@ -68,7 +68,7 @@ print("")
 print("Available midi ports are listed below:")
 print(mido.get_output_names())
 print("")
-print('LoopMIDI ports typically have names like "loopMIDI port 1"')
+print('LoopMIDI ports typically have names like "loopMIDI port 2"')
 print("")
 M_OUTPUT = input("Enter midi port from the list (without quotemarks): ")
 M_CHANNEL = 0
@@ -129,6 +129,7 @@ print("Now we can calibrate the system...")
 print("")
 print("To calibrate the magnetometer we need to take readings at")
 print("different head orientations, relative to your keyboard.")
+print("Try diff calibrations - try to make it as natural feeling as possible")
 print("")
 print("*****************************************************************")
 print("")
@@ -264,6 +265,7 @@ def map1(ii,lc,cc,rc):
 
 
 counter = 0
+mylist = []
 while True:
 
     url = PP_ADDRESS + "/get?" + ("&".join(PP_CHANNELS))
@@ -278,8 +280,20 @@ while True:
             a = a + 180
         elif a > 180:
             a = a - 180 
- 
-    value = map1(a,Lft_absolute,Ctr_absolute,Rt_absolute)
+
+
+    mylist.append(map1(a,Lft_absolute,Ctr_absolute,Rt_absolute))
+    N = 3
+    cumsum, moving_aves = [0], []
+
+    for i, x in enumerate(mylist, 1):
+        cumsum.append(cumsum[i-1] + x)
+        value = 0
+        if i>=N:
+            moving_ave = (cumsum[i] - cumsum[i-N])/N
+            #can do stuff with moving_ave here
+            value = round(moving_ave)
+            moving_aves.append(moving_ave)
 
     #Set CC control number - 1 is for Mod wheel
     control = 1
